@@ -15,6 +15,8 @@ jobs:
 
         permissions:
             contents: write
+            issues: read
+            pull-requests: read
 
         steps:
             - name: Generate metrics
@@ -38,12 +40,12 @@ jobs:
                   plugin_achievements: yes
                   plugin_achievements_display: detailed
                   plugin_achievements_threshold: C
-                  plugin_achievements_secrets: yes
+                  plugin_achievements_secrets: no
 
                   plugin_habits: yes
                   plugin_habits_days: 14
                   plugin_habits_facts: yes
-                  plugin_habits_from: 200
+                  plugin_habits_from: 1000
                   plugin_habits_languages_limit: 8
                   plugin_habits_languages_threshold: 0%
                   plugin_habits_charts: yes
@@ -91,10 +93,6 @@ jobs:
                   plugin_music: yes
                   plugin_music_provider: lastfm
                   plugin_music_user: misaliba
+                  plugin_music_token: ${{ secrets.LASTFM_API_KEY }}
                   plugin_music_mode: recent
                   plugin_music_limit: 8
-
-                  plugin_pagespeed: yes
-                  plugin_pagespeed_url: https://misaliba.eu
-                  plugin_pagespeed_detailed: yes
-                  plugin_pagespeed_screenshot: yes
